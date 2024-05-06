@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+skinparam actorStyle awesome
+
+
+User --> (Start Menu)
+(Start Menu) --> (Play Game)
+(Start Menu) --> (Settings)
+(Start Menu) --> (Leaderboards)
+(Start Menu) --> (Exit Game)
+
+(Play Game) --> (Choose Level)
+(Choose Level) --> (Choose Difficulty)
+
+(Settings) --> (Start Menu)
+(Leaderboards) --> (Start Menu)
+
+
+(Start Menu)
+(Play Game)
+(Settings)
+(Leaderboards)
+(Exit Game)
+
+@enduml
