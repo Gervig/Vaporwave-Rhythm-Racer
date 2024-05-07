@@ -1,0 +1,153 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Main {
++ static void main(String[] args
+}
+
+class Game {
+- String name
+- boolean gameRunning
+
++ AudioPlayer audioPlayer
++ Player player
++ Obstacle block
++ Obstacle speedUp
++ PowerUp heal
++ PowerUp slowTime
++ PowerUp superTime
+
+'maybe use tree map
+- ArrayList<Integer> highScores
+'constructor
++ Game (String name)
++ void draw()
++ void setup()
++ void runStartMenu()
++ void settingsMenu()
+'checks for player collisions
++ void runGameChecks()
++ void continueGame()
++ void playerDeath()
++ void quitProgram()
+}
+
+class AudioPlayer{
+- boolean songPlaying
+'constructor
++ AudioPlayer()
++ void playSong()
++ void stopSong()
+}
+
+'creates different obstacles
+abstract class GameObject{
+- double xPosition
+- double zPosition
+'constructor
++ GameObject(double xPosition, double zPosition)
++ double getXPosition()
++ double getZPosition()
+}
+
+abstract class CollisionObject{
+- String name
+- double yPosition
+'constructor
++ CollisionObject(String name, double yPosition)
+- onCollision()
+- playSound()
++ double getYPosition()
++ double setYPosition()
+}
+
+'handles the player's input
+class Player{
+- int health
+- int maxHealth
+- boolean super = false
+'constructor, set players health to 3 or w/e we want in the constructor & maxHealth
++ Player (int health)
++ int getHealth()
++ int changeHealth()
+}
+
+class Obstacle{
+- int damage
+- int speedUpTimer
+'constructor
++ Obstacle (int damage, int speedUpTimer)
++ int getDamage()
++ int getSpeedUpTimer()
+'- boolean moreObstacles    adds more obstacles to the game for a short time
+'- int moreObstaclesTimer
+'- boolean hacked   add stuff to the screen that makes it hard to see the game
+'- int hackedTimer
+}
+
+class PowerUp{
+- int healing
+- int superTimer
+- int slowTimer
+'constructor
++ PowerUp(int healing, int superTimer, int slowTimer)
++ int getHealing()
++ int getSuper()
++ int getSlow()
+}
+
+'creates buttons and general UI for the user to interact with
+class GameUI{
+- boolean overButton
+'constructor
++ GameUI ()
++ boolean promptBinary()
++ int promptNumeric()
++ boolean overButton(Button button)
++ void mousePressed()
+'+ void createSlider()      check processing "Handles" example
+}
+
+class Buttons{
+- int width
+- int height
+- int xPosition
+- int yPosition
+- boolean buttonPressed
+'constructor
++ Button (int x, int y, int width, int height)
++ void drawButton(x, y, width, height)
++ void buttonPressed()
++ Button getButton()
+}
+
+class Graphics{
+'constructor
++ Graphics()
++ drawGraphics()
+}
+
+'handles highscores
+class FileIO{
+- Scanner scanner
+- String highscorePath
+'constructor
++ FileIO ()
+' use treeMap to sort list, so that the highest highscore gets displayed in the top
++ ArrayList<String> readScoreboard(String path)
++ void newScore(String path, int score, ArrayList<Integer>)
+}
+
+Main *-- Game
+Game *-- FileIO
+Game *-- GameUI
+Game *-- GameObject
+Game *-- Graphics
+Game *-- AudioPlayer
+GameObject o-- Player
+GameObject *-- CollisionObject
+CollisionObject o-- Obstacle
+CollisionObject o-- PowerUp
+GameUI o-- Buttons
+
+@enduml

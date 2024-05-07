@@ -6,15 +6,20 @@ skinparam actorStyle awesome
 
 User --> (Start Menu)
 (Start Menu) --> (Play Game)
-(Start Menu) --> (Settings)
+(Start Menu) -right-> (Settings)
 (Start Menu) --> (Leaderboards)
 (Start Menu) --> (Exit Game)
 
 (Play Game) --> (Choose Level)
 (Choose Level) --> (Choose Difficulty)
+(Choose Difficulty) --> (Playing the Game)
+(Playing the Game) --> (Start Menu)
+(Playing the Game) -right-> (Exit Game)
+(Playing the Game) -up-> (Settings)
+(Settings) --> (Playing the Game)
 
-(Settings) --> (Start Menu)
 (Leaderboards) --> (Start Menu)
+(Settings) -right-> (Start Menu)
 
 
 (Start Menu)
@@ -22,5 +27,6 @@ User --> (Start Menu)
 (Settings)
 (Leaderboards)
 (Exit Game)
+(Playing the Game)
 
 @enduml
