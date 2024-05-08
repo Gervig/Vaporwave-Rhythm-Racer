@@ -161,7 +161,7 @@ class FileIO{
 'constructor
 + FileIO ()
 ' use treeMap to sort list, so that the highest highscore gets displayed in the top
-+ ArrayList<String> readScoreboard(String path)
++ ArrayList<Integer> readScoreboard(String path)
 + void newScore(String path, int score, ArrayList<Integer>)
 }
 
