@@ -15,7 +15,7 @@ public class FileIO {
         return null;
     }
 
-    public void newScore(String path, int score, ArrayList<Integer>){
+    public void newScore(String path, int score){
     }
 
     // Define other methods as per your diagram

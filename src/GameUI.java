@@ -10,7 +10,7 @@ public class GameUI {
     }
 
     public int promptNumeric(){
-        return input;
+        return 0;
     }
 
     public boolean overButton(Button button){
