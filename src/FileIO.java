@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class FileIO {
+    Scanner scanner;
     private String highscorePath;
 
     public FileIO() {

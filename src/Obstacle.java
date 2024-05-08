@@ -4,7 +4,8 @@ public class Obstacle extends CollisionObject {
 
     public Obstacle(int damage, int speedUpTimer) {
         super("Obstacle", 0);
-        // Constructor code here
+        this.damage = damage;
+        this.speedUpTimer = speedUpTimer;
     }
 
     @Override

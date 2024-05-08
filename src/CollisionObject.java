@@ -1,9 +1,10 @@
 public abstract class CollisionObject {
-    protected String name;
-    protected double yPosition;
+    private String name;
+    private double yPosition;
 
     public CollisionObject(String name, double yPosition) {
-        // Constructor code here
+        this.name = name;
+        this.yPosition = yPosition;
     }
 
     public abstract void onCollision();

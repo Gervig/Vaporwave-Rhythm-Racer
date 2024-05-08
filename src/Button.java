@@ -6,8 +6,11 @@ public class Button {
     private int yPosition;
     private boolean buttonPressed;
 
-    public Button(int x, int y, int width, int height) {
-        // Constructor code here
+    public Button(int width, int height, int xPosition, int yPosition) {
+        this.width = width;
+        this.height = height;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
     }
 
     public void drawButton(int x, int y, int width, int height) {
