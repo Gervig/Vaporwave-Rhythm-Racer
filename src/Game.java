@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> origin/create-Game-class
 
 public class Game {
     private String name;
