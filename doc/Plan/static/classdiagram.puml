@@ -82,10 +82,10 @@ class Player{
 'constructor, set players health to 3 or w/e we want in the constructor & maxHealth
 + Player (int health)
 + int getHealth()
-+ int changeHealth()
-+ int changeScorePoints()
++ void changeHealth (int amount)
++ void changeScorePoints (int amount)
 + int getScorePoints()
-+ int setScorePoints()
++ void resetScorePoints()
 }
 
 class Obstacle{
@@ -106,12 +106,14 @@ class PowerUp{
 - int healing
 - int superTimer
 - int slowTimer
+- int points
 
 'constructor
-+ PowerUp(int healing, int superTimer, int slowTimer)
++ PowerUp(int healing, int superTimer, int slowTimer, int points)
 + int getHealing()
 + int getSuper()
 + int getSlow()
++ int getPoints()
 }
 
 
@@ -121,24 +123,25 @@ class GameUI{
 
 'constructor
 + GameUI ()
-+ boolean promptBinary()
++ boolean promptBinary(String message)
 + int promptNumeric()
 + boolean overButton(Button button)
 + void mousePressed()
 '+ void createSlider()      check processing "Handles" example
 }
 
-class Buttons{
+class Button{
 - boolean showButton
 - int width
 - int height
 - int xPosition
 - int yPosition
+- String message
 - boolean buttonPressed
 
 'constructor
-+ Button (int x, int y, int width, int height)
-+ void drawButton(x, y, width, height)
++ Button (int x, int y, int width, int height, String message)
++ void drawButton(x, y, width, height, String message)
 + void buttonPressed()
 + Button getButton()
 }
@@ -172,6 +175,6 @@ GameObject o-- Player
 GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
-GameUI o-- Buttons
+GameUI o-- Button
 
 @enduml
