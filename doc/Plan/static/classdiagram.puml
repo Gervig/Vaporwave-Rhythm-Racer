@@ -3,6 +3,7 @@
 
 class Main {
 + static void main(String[] args
+Game game = new game ("Vaporwave Rhythm Racer")
 }
 
 class Game {
