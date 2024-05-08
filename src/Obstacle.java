@@ -18,5 +18,12 @@ public class Obstacle extends CollisionObject {
 
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getSpeedUpTimer() {
+        return speedUpTimer;
+    }
     // Define other methods as per your diagram
 }
