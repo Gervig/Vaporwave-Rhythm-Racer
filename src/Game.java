@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> origin/create-Game-class
 
 public class Game {
     private String name;
@@ -7,25 +11,49 @@ public class Game {
     private boolean leaderboardsMenuRunning;
     private boolean exitGameMenuRunning;
     private ArrayList<Integer> highScores;
-    private AudioPlayer audioPlayer;
-    private Player player;
-    private Obstacle block;
-    private Obstacle speedUp;
-    private PowerUp heal;
-    private PowerUp slowTime;
-    private PowerUp superTime;
+
+    // extra feature for later
+//    public AudioPlayer audioPlayer;
+    public Player player;
+    public Obstacle block;
+    public Obstacle speedUp;
+    public PowerUp heal;
+    public PowerUp slowTime;
+    public PowerUp superTime;
 
     public Game(String name) {
-        // Constructor code here
+        this.name = name;
     }
 
-    public void draw() {
-        // Method code here
+    public void draw(){
+
     }
 
-    public void setup() {
-        // Method code here
+    public void setup(){
+
     }
 
-    // Define other methods as per your diagram
+    public void runStartMenu(){
+
+    }
+
+    public void settingsMenu(){
+
+    }
+
+    public void runGameChecks(){
+
+    }
+
+    public void continueGame(){
+
+    }
+
+    public void playerDeath(){
+
+    }
+
+    public void quitProgram(){
+
+    }
 }
