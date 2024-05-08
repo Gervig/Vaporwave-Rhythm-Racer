@@ -8,7 +8,14 @@ class Main {
 class Game {
 - String name
 - boolean gameRunning
+- boolean mainMenuRunning
+- boolean settingsMenuRunning
+- boolean leaderboardsMenuRunning
+- boolean exitGameMenuRunning
+'maybe use tree map
+- ArrayList<Integer> highScores
 
+'objects
 + AudioPlayer audioPlayer
 + Player player
 + Obstacle block
@@ -17,8 +24,6 @@ class Game {
 + PowerUp slowTime
 + PowerUp superTime
 
-'maybe use tree map
-- ArrayList<Integer> highScores
 
 'constructor
 + Game (String name)
@@ -33,6 +38,7 @@ class Game {
 + void quitProgram()
 }
 
+'extra feature for later
 class AudioPlayer{
 - boolean songPlaying
 
@@ -76,7 +82,9 @@ class Player{
 + Player (int health)
 + int getHealth()
 + int changeHealth()
-+ int changePoints()
++ int changeScorePoints()
++ int getScorePoints()
++ int setScorePoints()
 }
 
 class Obstacle{
@@ -105,9 +113,6 @@ class PowerUp{
 + int getSlow()
 }
 
-class Point{
-- int points
-}
 
 'creates buttons and general UI for the user to interact with
 class GameUI{
@@ -123,6 +128,7 @@ class GameUI{
 }
 
 class Buttons{
+- boolean showButton
 - int width
 - int height
 - int xPosition
@@ -165,7 +171,6 @@ GameObject o-- Player
 GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
-CollisionObject o-- Point
 GameUI o-- Buttons
 
 @enduml
