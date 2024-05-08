@@ -19,6 +19,7 @@ class Game {
 
 'maybe use tree map
 - ArrayList<Integer> highScores
+
 'constructor
 + Game (String name)
 + void draw()
@@ -34,6 +35,7 @@ class Game {
 
 class AudioPlayer{
 - boolean songPlaying
+
 'constructor
 + AudioPlayer()
 + void playSong()
@@ -44,6 +46,7 @@ class AudioPlayer{
 abstract class GameObject{
 - double xPosition
 - double zPosition
+
 'constructor
 + GameObject(double xPosition, double zPosition)
 + double getXPosition()
@@ -53,6 +56,7 @@ abstract class GameObject{
 abstract class CollisionObject{
 - String name
 - double yPosition
+
 'constructor
 + CollisionObject(String name, double yPosition)
 - onCollision()
@@ -65,16 +69,20 @@ abstract class CollisionObject{
 class Player{
 - int health
 - int maxHealth
+- int scorePoints
 - boolean super = false
+
 'constructor, set players health to 3 or w/e we want in the constructor & maxHealth
 + Player (int health)
 + int getHealth()
 + int changeHealth()
++ int changePoints()
 }
 
 class Obstacle{
 - int damage
 - int speedUpTimer
+
 'constructor
 + Obstacle (int damage, int speedUpTimer)
 + int getDamage()
@@ -89,6 +97,7 @@ class PowerUp{
 - int healing
 - int superTimer
 - int slowTimer
+
 'constructor
 + PowerUp(int healing, int superTimer, int slowTimer)
 + int getHealing()
@@ -96,9 +105,14 @@ class PowerUp{
 + int getSlow()
 }
 
+class Point{
+- int points
+}
+
 'creates buttons and general UI for the user to interact with
 class GameUI{
 - boolean overButton
+
 'constructor
 + GameUI ()
 + boolean promptBinary()
@@ -114,6 +128,7 @@ class Buttons{
 - int xPosition
 - int yPosition
 - boolean buttonPressed
+
 'constructor
 + Button (int x, int y, int width, int height)
 + void drawButton(x, y, width, height)
@@ -122,6 +137,7 @@ class Buttons{
 }
 
 class Graphics{
+
 'constructor
 + Graphics()
 + drawGraphics()
@@ -131,6 +147,7 @@ class Graphics{
 class FileIO{
 - Scanner scanner
 - String highscorePath
+
 'constructor
 + FileIO ()
 ' use treeMap to sort list, so that the highest highscore gets displayed in the top
@@ -148,6 +165,7 @@ GameObject o-- Player
 GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
+CollisionObject o-- Point
 GameUI o-- Buttons
 
 @enduml
