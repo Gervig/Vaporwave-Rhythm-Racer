@@ -66,8 +66,8 @@ abstract class CollisionObject{
 
 'constructor
 + CollisionObject(String name, double yPosition)
-- onCollision()
-- playSound()
+- void onCollision()
+- void playSound()
 + double getYPosition()
 + double setYPosition()
 }
