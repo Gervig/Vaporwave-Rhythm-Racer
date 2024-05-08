@@ -4,9 +4,10 @@ public class Player {
     private int scorePoints;
     private boolean superPower;
 
+    // constructor
     public Player(int health) {
-        // Constructor code here
+        this.health = health;
     }
 
-    // Define other methods as per your diagram
+// Define other methods as per your diagram
 }

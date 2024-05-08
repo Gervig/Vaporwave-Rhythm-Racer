@@ -18,6 +18,7 @@ public class Game {
     public PowerUp slowTime;
     public PowerUp superTime;
 
+// constructor
     public Game(String name) {
         this.name = name;
     }

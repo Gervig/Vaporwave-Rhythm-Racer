@@ -3,9 +3,11 @@ public class PowerUp extends CollisionObject {
     private int superTimer;
     private int slowTimer;
 
-    public PowerUp(int healing, int superTimer, int slowTimer) {
-        super("PowerUp", 0);
-        // Constructor code here
+    public PowerUp(String name, double yPosition, int healing, int superTimer, int slowTimer) {
+        super(name, yPosition);
+        this.healing = healing;
+        this.superTimer = superTimer;
+        this.slowTimer = slowTimer;
     }
 
     @Override

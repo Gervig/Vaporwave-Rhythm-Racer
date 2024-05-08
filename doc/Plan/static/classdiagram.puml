@@ -128,7 +128,7 @@ class GameUI{
 '+ void createSlider()      check processing "Handles" example
 }
 
-class Buttons{
+class Button{
 - boolean showButton
 - int width
 - int height
@@ -172,6 +172,6 @@ GameObject o-- Player
 GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
-GameUI o-- Buttons
+GameUI o-- Button
 
 @enduml
