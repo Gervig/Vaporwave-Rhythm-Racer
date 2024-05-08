@@ -17,4 +17,7 @@ public abstract class CollisionObject {
     public void setYPosition(double yPosition) {
         this.yPosition = yPosition;
     }
+
+
+
 }

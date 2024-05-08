@@ -18,5 +18,17 @@ public class PowerUp extends CollisionObject {
 
     }
 
+    public int getHealing() {
+        return healing;
+    }
+
+    public int getSuperTimer() {
+        return superTimer;
+    }
+
+    public int getSlowTimer() {
+        return slowTimer;
+    }
+
     // Define other methods as per your diagram
 }
