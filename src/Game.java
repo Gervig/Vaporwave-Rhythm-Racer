@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -11,6 +13,8 @@ public class Game {
 
     // extra feature for later
 //    public AudioPlayer audioPlayer;
+
+    PApplet pApplet = new PApplet();
     public Player player;
     public Obstacle block;
     public Obstacle speedUp;

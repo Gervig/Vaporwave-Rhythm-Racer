@@ -17,6 +17,7 @@ class Game {
 - ArrayList<Integer> highScores
 
 'objects
++ PApplet pApplet
 + AudioPlayer audioPlayer
 + Player player
 + Obstacle block
