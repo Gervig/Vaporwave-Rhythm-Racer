@@ -81,10 +81,10 @@ class Player{
 - boolean super = false
 
 'constructor, set players health to 3 or w/e we want in the constructor & maxHealth
-+ Player (int health)
++ Player(int health)
 + int getHealth()
-+ void changeHealth (int amount)
-+ void changeScorePoints (int amount)
++ void changeHealth(int amount)
++ void changeScorePoints(int amount)
 + int getScorePoints()
 + void resetScorePoints()
 }
@@ -117,13 +117,12 @@ class PowerUp{
 + int getPoints()
 }
 
-
 'creates buttons and general UI for the user to interact with
 class GameUI{
 - boolean overButton
 
 'constructor
-+ GameUI ()
++ GameUI()
 + boolean promptBinary(String message)
 + int promptNumeric()
 + boolean overButton(Button button)
@@ -148,10 +147,58 @@ class Button{
 }
 
 class Graphics{
+- Vaporwave vaporwave
 
 'constructor
 + Graphics()
 + drawGraphics()
+}
+
+class Vaporwave{
+- color startColor
+- color endColor
+- color gridFill
+- color gridStroke
+- color sunColor
+- int scl = 15
+- int centerY
+- int centerX
+- int cols
+- int rows
+- int w
+- int h
+- float sunRadius = 100
+- float hillHeight = 10
+- float moving = 0
+- float[][] landscape
+- Moon[] moons = new Moon[16]
+'constructor
++ Vaporwave(color startColor, color endColor, color gridFill, color gridStroke, color sunColor, int centerY, int centerX, int cols, int rows, int w, int h)
++ void drawVaporwave()
+- void createMoonObjects()
+- void createLandscape()
+- void lights()
+- void drawSky()
+- void drawSun()
+- void rotateCamera()
+- void generateNoiseMap()
+- void drawGrid()
+- void drawGradient(float startY, float endY, color colorStart, color colorEnd)
+
+}
+
+class Moon{
+ - color moonColor
+' color moonColor = color(160, 255, 255); check if IntelliJ can do color like this
+ - int startX
+ - float moonSpeed
+ - int t = 0
+ - int size
+ - int moonHeight
+ - int moonEDFC
+ 'constructor
+ + Moon(int startX, int size, float moonSpeed, int moonHeight, int moonEDFC)
+ + void drawMoon()
 }
 
 'handles highscores
@@ -177,5 +224,7 @@ GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
 GameUI o-- Button
+Graphics o-- Vaporwave
+Vaporwave o-- Moon
 
 @enduml
