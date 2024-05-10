@@ -160,6 +160,8 @@ class Vaporwave{
 - color gridFill
 - color gridStroke
 - color sunColor
+'vi skal have en variabel til spillets fart, altså noiseMapSpeed
+- float noiseMapSpeed
 - int scl = 15
 - int centerY
 - int centerX
@@ -174,7 +176,6 @@ class Vaporwave{
 - Moon[] moons = new Moon[16]
 'constructor
 + Vaporwave(color startColor, color endColor, color gridFill, color gridStroke, color sunColor, int centerY, int centerX, int cols, int rows, int w, int h)
-+ void drawVaporwave()
 - void createMoonObjects()
 - void createLandscape()
 - void lights()
@@ -184,7 +185,10 @@ class Vaporwave{
 - void generateNoiseMap()
 - void drawGrid()
 - void drawGradient(float startY, float endY, color colorStart, color colorEnd)
-
+'De følgende metoder burde kaldes til at få banen til at følge med resten af spillets speed
++ float getNoiseMapSpeed()
++ float setNoiseMapSpeed()
++ float changeNoiseMapSpeed()
 }
 
 class Moon{
