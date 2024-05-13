@@ -1,7 +1,7 @@
 import processing.core.*;
 
 public class Moon extends PApplet{
-//    private PApplet pApplet = new PApplet();
+    //    private PApplet pApplet = new PApplet();
     private int moonColor;
     private int startX;
     private float moonSpeed;

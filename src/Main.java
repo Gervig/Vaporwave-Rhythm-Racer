@@ -5,15 +5,16 @@ import processing.opengl.*;
 public class Main extends PApplet {
     Game game = new Game("Vaporwave Rhythm Racer");
 
+    public void settings(){
+        size(1000,600, P3D);
+    }
+
     public void setup() {
         game.setup();
     }
 
     public void draw() {
         game.draw();
-    }
-    public void settings(){
-        size(1000,600, P3D);
     }
 
     public static void main(String[] args) {
