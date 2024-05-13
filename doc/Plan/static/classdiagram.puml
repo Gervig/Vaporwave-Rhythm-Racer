@@ -185,10 +185,12 @@ class Vaporwave{
 - void generateNoiseMap()
 - void drawGrid()
 - void drawGradient(float startY, float endY, color colorStart, color colorEnd)
++ void defineSizeConstants()
 'De følgende metoder burde kaldes til at få banen til at følge med resten af spillets speed
 + float getNoiseMapSpeed()
 + float setNoiseMapSpeed()
 + float changeNoiseMapSpeed()
+
 }
 
 class Moon{
