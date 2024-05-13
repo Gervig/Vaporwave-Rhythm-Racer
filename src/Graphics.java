@@ -6,6 +6,10 @@ public class Graphics {
 
     public void drawGraphics() {
         // Method code here
-//        vaporwave.
+        vaporwave.lights();
+        vaporwave.drawSky();
+        vaporwave.drawSun();
+        vaporwave.generateNoiseMap();
+        vaporwave.drawGrid();
     }
 }
