@@ -7,6 +7,10 @@ public class Main extends PApplet {
         game.setup();
     }
 
+    public void draw() {
+        game.draw();
+    }
+
     public static void main(String[] args) {
         String[] appletArgs = new String[]{"Main"};
         PApplet.main(appletArgs);
