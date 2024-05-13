@@ -24,43 +24,56 @@ public class Game {
     public Graphics graphics;
     public Vaporwave vaporwave;
 
-// constructor
+    // constructor
     public Game(String name) {
         this.name = name;
     }
 
-    public void draw(){
-
+    public void draw() {
+        pApplet.background(255);
+        vaporwave.lights();
+        vaporwave.drawSky();
+        // test if rotateCamera can be called in setup
+        vaporwave.rotateCamera();
+        vaporwave.generateNoiseMap();
+        vaporwave.drawGrid();
+        // calls the draw moon for each of our moon objects in the moons array
+        for (Moon m : vaporwave.getMoons()) {
+            m.drawMoon();
+        }
+        vaporwave.drawSky();
+        vaporwave.drawGradient(1700, pApplet.height, vaporwave.getStartColor(), vaporwave.getEndColor());
+        vaporwave.drawSun();
     }
 
-    public void setup(){
-    pApplet.size(1000,600);
+    public void setup() {
+        pApplet.size(1000, 600);
 //    vaporwave.defineSizeConstants();
-    vaporwave.createMoonObjects();
-    vaporwave.createLandscape();
+        vaporwave.createMoonObjects();
+        vaporwave.createLandscape();
     }
 
-    public void runStartMenu(){
-
-    }
-
-    public void settingsMenu(){
+    public void runStartMenu() {
 
     }
 
-    public void runGameChecks(){
+    public void settingsMenu() {
 
     }
 
-    public void continueGame(){
+    public void runGameChecks() {
 
     }
 
-    public void playerDeath(){
+    public void continueGame() {
 
     }
 
-    public void quitProgram(){
+    public void playerDeath() {
+
+    }
+
+    public void quitProgram() {
 
     }
 }
