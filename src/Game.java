@@ -14,13 +14,15 @@ public class Game {
     // extra feature for later
 //    public AudioPlayer audioPlayer;
 
-    PApplet pApplet = new PApplet();
+    PApplet pApplet;
     public Player player;
     public Obstacle block;
     public Obstacle speedUp;
     public PowerUp heal;
     public PowerUp slowTime;
     public PowerUp superTime;
+    public Graphics graphics;
+    public Vaporwave vaporwave;
 
 // constructor
     public Game(String name) {
@@ -32,7 +34,10 @@ public class Game {
     }
 
     public void setup(){
-
+    pApplet.size(1000,600);
+//    vaporwave.defineSizeConstants();
+    vaporwave.createMoonObjects();
+    vaporwave.createLandscape();
     }
 
     public void runStartMenu(){

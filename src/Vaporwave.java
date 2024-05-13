@@ -1,6 +1,7 @@
 import processing.core.*;
 
 public class Vaporwave {
+    private PApplet pApplet;
     private int startColor;
     private int endColor;
     private int gridFill;
@@ -8,8 +9,8 @@ public class Vaporwave {
     private int sunColor;
     private float noiseMapSpeed;
     private int scl = 15;
-    private int centerY;
-    private int centerX;
+    private int centerY = pApplet.height / 2;
+    private int centerX = pApplet.width / 2;
     private int cols;
     private int rows;
     private int w;
@@ -19,7 +20,6 @@ public class Vaporwave {
     private float moving = 0;
     private float[][] landscape;
     private Moon[] moons = new Moon[16];
-    private PApplet pApplet;
 
     public Vaporwave(int startColor, int endColor, int gridFill, int gridStroke, int sunColor, int centerY, int centerX, int cols, int rows, int w, int h) {
         startColor = pApplet.color(225, 24, 200);
@@ -50,6 +50,7 @@ public class Vaporwave {
 
     public void lights() {
         // Implementation here
+        pApplet.lights();
     }
 
     public void drawSky() {
@@ -86,5 +87,13 @@ public class Vaporwave {
 
     public void changeNoiseMapSpeed(float delta) {
         this.noiseMapSpeed += delta;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
+
+    public int getCenterX() {
+        return centerX;
     }
 }
