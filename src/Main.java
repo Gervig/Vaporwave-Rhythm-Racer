@@ -125,10 +125,13 @@ public class Main extends PApplet {
     }
     public void rotateCamera() {
         //rotate the camera to tilt the landscape
-        translate(width/2, height/2);
         //camera test
-//        camera(-100, 100, -200, 0, 0, 0, 0, 1, 0);
-        rotateX((float) (Math.PI / 2.5));
+        camera(0,0,100,width/2, height,100,0,0,1);
+//        translate(width/2, height/2);
+//        camera(0, 0, 0, 0, 0, 0, 0, 1, 0);
+//        camera(width/2, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
+
+//        rotateX((float) (Math.PI / 2.5));
     }
     public void drawGradient(float startY, float endY, int colorStart, int colorEnd) {
         // loops, drawing a line at each y coordiante, since there is no way to outright draw gradients within processing.
