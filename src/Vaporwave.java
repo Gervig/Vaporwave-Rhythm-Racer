@@ -19,12 +19,18 @@ public class Vaporwave {
     private float moving = 0;
     private float[][] landscape;
     private Moon[] moons = new Moon[16];
+    private PApplet pApplet;
 
     public Vaporwave(int startColor, int endColor, int gridFill, int gridStroke, int sunColor, int centerY, int centerX, int cols, int rows, int w, int h) {
+        startColor = pApplet.color(225, 24, 200);
         this.startColor = startColor;
+        endColor = pApplet.color(0, 185, 230);
         this.endColor = endColor;
+        gridFill = pApplet.color(80, 20, 120);
         this.gridFill = gridFill;
+        gridStroke = pApplet.color(100, 100, 250);
         this.gridStroke = gridStroke;
+        sunColor = pApplet.color(255, 245, 190);
         this.sunColor = sunColor;
         this.centerY = centerY;
         this.centerX = centerX;
