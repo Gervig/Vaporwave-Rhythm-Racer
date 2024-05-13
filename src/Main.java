@@ -13,7 +13,7 @@ public class Main extends PApplet {
         game.draw();
     }
     public void settings(){
-        size(1000,600, OPENGL);
+        size(1000,600, P3D);
     }
 
     public static void main(String[] args) {
