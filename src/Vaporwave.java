@@ -40,39 +40,39 @@ public class Vaporwave {
         this.h = h;
     }
 
-    private void createMoonObjects() {
+    public void createMoonObjects() {
         // Implementation here
     }
 
-    private void createLandscape() {
+    public void createLandscape() {
         // Implementation here
     }
 
-    private void lights() {
+    public void lights() {
         // Implementation here
     }
 
-    private void drawSky() {
+    public void drawSky() {
         // Implementation here
     }
 
-    private void drawSun() {
+    public void drawSun() {
         // Implementation here
     }
 
-    private void rotateCamera() {
+    public void rotateCamera() {
         // Implementation here
     }
 
-    private void generateNoiseMap() {
+    public void generateNoiseMap() {
         // Implementation here
     }
 
-    private void drawGrid() {
+    public void drawGrid() {
         // Implementation here
     }
 
-    private void drawGradient(float startY, float endY, int colorStart, int colorEnd) {
+    public void drawGradient(float startY, float endY, int colorStart, int colorEnd) {
         // Implementation here
     }
 
