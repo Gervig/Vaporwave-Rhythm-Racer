@@ -1,8 +1,11 @@
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 import java.util.ArrayList;
 
 public class Game {
+    public static PApplet pApplet = new PApplet();
+    public static PGraphics pg = new PGraphics();
     private String name;
     private boolean gameRunning;
     private boolean mainMenuRunning;
@@ -14,15 +17,14 @@ public class Game {
     // extra feature for later
 //    public AudioPlayer audioPlayer;
 
-    PApplet pApplet;
     public Player player;
     public Obstacle block;
     public Obstacle speedUp;
     public PowerUp heal;
     public PowerUp slowTime;
     public PowerUp superTime;
-    public Graphics graphics;
-    public Vaporwave vaporwave;
+    public Graphics graphics = new Graphics();
+    public static Vaporwave vaporwave = new Vaporwave();
 
     // constructor
     public Game(String name) {
@@ -30,24 +32,11 @@ public class Game {
     }
 
     public void draw() {
-        pApplet.background(255);
-        vaporwave.lights();
-        vaporwave.drawSky();
-        // test if rotateCamera can be called in setup
-        vaporwave.rotateCamera();
-        vaporwave.generateNoiseMap();
-        vaporwave.drawGrid();
-        // calls the draw moon for each of our moon objects in the moons array
-        for (Moon m : vaporwave.getMoons()) {
-            m.drawMoon();
-        }
-        vaporwave.drawSky();
-        vaporwave.drawGradient(1700, pApplet.height, vaporwave.getStartColor(), vaporwave.getEndColor());
-        vaporwave.drawSun();
+        graphics.drawGraphics();
     }
 
     public void setup() {
-        pApplet.size(1000, 600);
+//        pApplet.size(1000, 600);
 //    vaporwave.defineSizeConstants();
         vaporwave.createMoonObjects();
         vaporwave.createLandscape();
