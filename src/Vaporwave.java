@@ -24,7 +24,6 @@ public class Vaporwave {
     private float[][] landscape;
     private Moon[] moons = new Moon[16];
 
-
     public Vaporwave(int startColor, int endColor, int gridFill, int gridStroke, int sunColor, int centerY, int centerX, int cols, int rows, int w, int h) {
         startColor = pApplet.color(225, 24, 200);
         this.startColor = startColor;
@@ -43,6 +42,9 @@ public class Vaporwave {
         this.w = w;
         this.h = h;
     }
+    public Moon[] getMoons() {
+        return moons;
+    }
 
     public void createMoonObjects() {
         for (int i = 0; i < moons.length; i++) {
@@ -55,6 +57,7 @@ public class Vaporwave {
     }
 
     public void lights() {
+        // Implementation here
         pApplet.lights();
     }
 
@@ -88,6 +91,9 @@ public class Vaporwave {
 
     public void rotateCamera() {
         // Implementation here
+        //rotate the camera to tilt the landscape
+        pApplet.translate(pApplet.width/2, pApplet.height/2);
+        pApplet.rotateX((float) (Math.PI / 2.5));
     }
 
     public void generateNoiseMap() {
@@ -189,5 +195,21 @@ public class Vaporwave {
 
     public int getCenterX() {
         return centerX;
+    }
+
+    public int getStartColor() {
+        return startColor;
+    }
+
+    public int getEndColor() {
+        return endColor;
+    }
+
+    public void setStartColor(int startColor) {
+        this.startColor = startColor;
+    }
+
+    public void setEndColor(int endColor) {
+        this.endColor = endColor;
     }
 }
