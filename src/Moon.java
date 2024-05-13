@@ -46,4 +46,3 @@ public class Moon {
         pApplet.popMatrix();
     }
 }
-}
