@@ -40,6 +40,13 @@ class Game {
 + void quitProgram()
 }
 
+abstract class AGraphics{
++ PApplet pApplet
++ AGraphics(PApplet pApplet)
++ displayGraphics()
+}
+
+
 'extra feature for later
 class AudioPlayer{
 - boolean songPlaying
@@ -56,9 +63,8 @@ abstract class GameObject{
 - double zPosition
 
 'constructor
-+ GameObject(double xPosition, double zPosition)
++ GameObject(double xPosition, PApplet pApplet)
 + double getXPosition()
-+ double getZPosition()
 }
 
 abstract class CollisionObject{
@@ -119,6 +125,7 @@ class PowerUp{
 
 'creates buttons and general UI for the user to interact with
 class GameUI{
++ PApplet pApplet
 - boolean overButton
 
 'constructor
@@ -131,6 +138,7 @@ class GameUI{
 }
 
 class Button{
++ PApplet pApplet
 - boolean showButton
 - int width
 - int height
@@ -140,89 +148,29 @@ class Button{
 - boolean buttonPressed
 
 'constructor
-+ Button (int x, int y, int width, int height, String message)
++ Button (int x, int y, int width, int height, String message, PApplet pApplet)
 + void drawButton(x, y, width, height, String message)
 + void buttonPressed()
 + Button getButton()
 }
 
+
 class Graphics{
-'- Vaporwave vaporwave
-- TwoDGraphics twoDGraphics
-
-'constructor
-+ Graphics()
-+ drawGraphics()
-}
-
-class Vaporwave{
-- color startColor
-- color endColor
-- color gridFill
-- color gridStroke
-- color sunColor
-'vi skal have en variabel til spillets fart, altså noiseMapSpeed
-- float noiseMapSpeed
-- int scl = 15
-- int centerY
-- int centerX
-- int cols
-- int rows
-- int w
-- int h
-- float sunRadius = 100
-- float hillHeight = 10
-- float moving = 0
-- float[][] landscape
-- Moon[] moons = new Moon[16]
-'constructor
-+ Vaporwave(color startColor, color endColor, color gridFill, color gridStroke, color sunColor, int centerY, int centerX, int cols, int rows, int w, int h)
-+ void createMoonObjects()
-+ void createLandscape()
-+ void lights()
-+ void drawSky()
-+ void drawSun()
-+ void rotateCamera()
-+ void generateNoiseMap()
-+ void drawGrid()
-+ void drawGradient(float startY, float endY, color colorStart, color colorEnd)
-'De følgende metoder burde kaldes til at få banen til at følge med resten af spillets speed
-+ float getNoiseMapSpeed()
-+ float setNoiseMapSpeed()
-+ float changeNoiseMapSpeed()
-
-}
-
-class TwoDGraphics{
-- PApplet pApplet
++ PApplet pApplet
 - int w
 - int h
 - int rows
 - int cols
 - int gridStroke
 - int gridFill
-- int scl = 15
+- int scl = 48
 - int[][] landscape
 'constructor
-+ TwoDGraphics()
++ Graphics()
 + void createLandscape()
 + void drawGrid()
 + void drawGradient(float startY, float endY, color colorStart, color colorEnd)
 + void generateNoiseMap()
-}
-
-class Moon{
- - color moonColor
-' color moonColor = color(160, 255, 255); check if IntelliJ can do color like this
- - int startX
- - float moonSpeed
- - int t = 0
- - int size
- - int moonHeight
- - int moonEDFC
- 'constructor
- + Moon(int startX, int size, float moonSpeed, int moonHeight, int moonEDFC)
- + void drawMoon()
 }
 
 'handles highscores
@@ -239,17 +187,16 @@ class FileIO{
 
 Main *-- Game
 Game *-- FileIO
-Game *-- GameUI
-Game *-- GameObject
-Game *-- Graphics
 Game *-- AudioPlayer
+Game *-- AGraphics
+Game *-- GameObject
+Game *-- GameUI
 GameObject o-- Player
 GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
 GameUI o-- Button
-Graphics o-- TwoDGraphics
-'Graphics o-- Vaporwave
-Vaporwave o-- Moon
+AGraphics o-- Graphics
+
 
 @enduml
