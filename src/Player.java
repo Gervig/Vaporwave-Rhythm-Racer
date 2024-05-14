@@ -45,6 +45,20 @@ public class Player extends Shape {
         return playerPos;
     }
 
+    private void drawWheels(int x, int y) {
+        //TODO position these rectangles to be where the wheels are supposed to be drawn
+
+        // left front wheel
+        pApplet.rect(5, 25, x, y, 28);
+        // right front wheel
+        pApplet.rect(5, 25, x, y, 28);
+        // left back wheel
+        pApplet.rect(5, 25, x, y, 28);
+        // right back wheel
+        pApplet.rect(5, 25, x, y, 28);
+
+    }
+
     @Override
     public void displayShape() {
 //        pApplet.rectMode(0);
