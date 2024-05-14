@@ -6,7 +6,7 @@ import static java.lang.Math.sqrt;
 import static processing.core.PApplet.sq;
 
 public class Main extends PApplet {
-//    Game game = new Game("Vaporwave Rhythm Racer");
+    //    Game game = new Game("Vaporwave Rhythm Racer");
     private int startColor = color(225, 24, 200);
     private int endColor = color(0, 185, 230);
     private int gridFill = color(80, 20, 120);
@@ -49,11 +49,8 @@ public class Main extends PApplet {
         drawGrid();
         // calls the draw moon for each of our moon objects in the moons array
         for (Moon m : moons) {
-           m.drawMoon();
+            m.drawMoon();
         }
-        drawSky();
-        drawGradient(1700, height, startColor, endColor);
-//        drawSun();
     }
     public void createMoonObjects() {
         for (int i = 0; i < moons.length; i++) {
@@ -126,12 +123,12 @@ public class Main extends PApplet {
     public void rotateCamera() {
         //rotate the camera to tilt the landscape
         //camera test
-        camera(0,0,100,width/2, height,100,0,0,1);
-//        translate(width/2, height/2);
+//        camera(0,0,100,width/2, height,100,0,0,1);
+        translate(width/2, height/2);
+        rotateX((float) (Math.PI / 2.5));
 //        camera(0, 0, 0, 0, 0, 0, 0, 1, 0);
 //        camera(width/2, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
 
-//        rotateX((float) (Math.PI / 2.5));
     }
     public void drawGradient(float startY, float endY, int colorStart, int colorEnd) {
         // loops, drawing a line at each y coordiante, since there is no way to outright draw gradients within processing.
@@ -248,9 +245,9 @@ public class Main extends PApplet {
                 t += moonSpeed;
             }
 
-           stroke(moonColor);
-           fill(moonColor);
-           sphere(size);
+            stroke(moonColor);
+            fill(moonColor);
+            sphere(size);
             // popmatrix will reset the camera position after the moon is drawn, this avoid messing everything else up with the contantly changing camera
             // yes, there is no better way to do this in processing. i looked.
             popMatrix();
