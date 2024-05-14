@@ -1,11 +1,8 @@
-import processing.core.*;
 import processing.core.PApplet;
-import processing.core.PGraphics;
 
 import java.util.ArrayList;
 
 public class Game {
-//    public PApplet pApplet = new PApplet();
     private String name;
     private boolean gameRunning;
     private boolean mainMenuRunning;
