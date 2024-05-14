@@ -148,7 +148,7 @@ class Button{
 
 class Graphics{
 '- Vaporwave vaporwave
-- 2DGraphics twoDGraphics
+- TwoDGraphics twoDGraphics
 
 'constructor
 + Graphics()
@@ -202,7 +202,7 @@ class TwoDGraphics{
 - int gridStroke
 - int gridFill
 - int scl = 15
-- float[][] landscape
+- int[][] landscape
 'constructor
 + TwoDGraphics()
 + void createLandscape()
