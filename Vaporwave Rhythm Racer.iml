@@ -8,11 +8,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="core" level="project" />
-    <orderEntry type="library" name="gluegen-rt" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../processing-4.3/core/library/gluegen-rt.jar!/" />
+          <root url="jar://$MODULE_DIR$/../processing-4.3/core/library/jogl-all.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -21,7 +20,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../processing-4.3/core/library/jogl-all.jar!/" />
+          <root url="jar://$MODULE_DIR$/../processing-4.3/core/library/gluegen-rt.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

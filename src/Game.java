@@ -4,8 +4,7 @@ import processing.core.PGraphics;
 import java.util.ArrayList;
 
 public class Game {
-    public static PApplet pApplet = new PApplet();
-    public static PGraphics pg = new PGraphics();
+    public PApplet pApplet;
     private String name;
     private boolean gameRunning;
     private boolean mainMenuRunning;
