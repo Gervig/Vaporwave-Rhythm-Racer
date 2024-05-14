@@ -147,7 +147,8 @@ class Button{
 }
 
 class Graphics{
-- Vaporwave vaporwave
+'- Vaporwave vaporwave
+- TwoDGraphics twoDGraphics
 
 'constructor
 + Graphics()
@@ -192,6 +193,24 @@ class Vaporwave{
 
 }
 
+class TwoDGraphics{
+- PApplet pApplet
+- int w
+- int h
+- int rows
+- int cols
+- int gridStroke
+- int gridFill
+- int scl = 15
+- int[][] landscape
+'constructor
++ TwoDGraphics()
++ void createLandscape()
++ void drawGrid()
++ void drawGradient(float startY, float endY, color colorStart, color colorEnd)
++ void generateNoiseMap()
+}
+
 class Moon{
  - color moonColor
 ' color moonColor = color(160, 255, 255); check if IntelliJ can do color like this
@@ -229,7 +248,8 @@ GameObject *-- CollisionObject
 CollisionObject o-- Obstacle
 CollisionObject o-- PowerUp
 GameUI o-- Button
-Graphics o-- Vaporwave
+Graphics o-- TwoDGraphics
+'Graphics o-- Vaporwave
 Vaporwave o-- Moon
 
 @enduml

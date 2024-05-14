@@ -1,19 +1,24 @@
 import processing.core.PApplet;
-import processing.core.PConstants;
-import processing.opengl.*;
 
 public class Main extends PApplet {
-    Game game = new Game("Vaporwave Rhythm Racer");
+//    Game game = new Game("Vaporwave Rhythm Racer");
+    TwoDGraphics grid = new TwoDGraphics(this);
+    Player player = new Player(this, 3);
+//    TwoDGraphics testGrid = new TwoDGraphics(this);
+
+    public void settings() {
+        size(1920, 1080);
+        fullScreen();
+    }
 
     public void setup() {
-        game.setup();
     }
 
     public void draw() {
-        game.draw();
-    }
-    public void settings(){
-        size(1000,600, OPENGL);
+        background(255);
+        grid.drawGradient();
+        grid.drawGrid((float)0.05);
+        player.displayShape();
     }
 
     public static void main(String[] args) {
