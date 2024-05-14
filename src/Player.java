@@ -48,6 +48,7 @@ public class Player extends Shape {
     @Override
     public void displayShape() {
 //        pApplet.rectMode(0);
+        mouseXPos = pApplet.mouseX;
         int leftBound = pApplet.width / 2 - 96;
         int rightBound = pApplet.width / 2 + 96;
         if (mouseXPos <= leftBound) {
