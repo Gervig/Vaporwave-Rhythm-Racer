@@ -1,10 +1,9 @@
 import processing.core.PApplet;
-import processing.core.PGraphics;
 
 public class Graphics extends PApplet{
     PApplet pApplet;
 //    private PApplet pApplet;
-    TwoDGraphics twoDGraphics = new TwoDGraphics(pApplet);
+//    TwoDGraphics twoDGraphics = new TwoDGraphics();
 //    private Vaporwave vaporwave;
     public Graphics() {
 
@@ -12,6 +11,6 @@ public class Graphics extends PApplet{
     }
 
     public void drawGraphics() {
-        twoDGraphics.drawGrid();
+//        twoDGraphics.drawGrid();
     }
 }
