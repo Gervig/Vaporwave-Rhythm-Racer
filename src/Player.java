@@ -2,6 +2,10 @@ import processing.core.PApplet;
 
 public class Player extends Shape {
     private int health;
+
+    private int carYPos = 700;
+    private int carWidth = 96;
+    private int carHeight = 144;
     private int maxHealth;
     private int scorePoints;
     private boolean superPower;
@@ -70,7 +74,9 @@ public class Player extends Shape {
         } else if (mouseXPos >= rightBound) {
             mouseXPos = rightBound;
         }
-        pApplet.rect(mouseXPos - 48, 700, 96, 144, 28);
+        // a is x, b is y, c is width, d is height and r is radius of the corners (gives the rectangle round corners)
+        pApplet.rect(mouseXPos - 48, carYPos, carWidth, carHeight, 28);
+//        drawWheels(mouseXPos,carYPos);
     }
 
     // Define other methods as per your diagram
