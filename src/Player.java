@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public class Player extends Shape {
     private int health;
 
-    private int carYPos = 700;
+    private int carYPos = (int)(pApplet.height*9);
     private int carWidth = 96;
     private int carHeight = 144;
     private int maxHealth;
