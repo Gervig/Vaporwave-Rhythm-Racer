@@ -4,16 +4,18 @@ import processing.opengl.*;
 
 public class Main extends PApplet {
     Game game = new Game("Vaporwave Rhythm Racer");
+    public void settings(){
+        size(1920,1080);
+//        fullScreen();
+    }
 
     public void setup() {
-        game.setup();
+//        game.setup();
     }
 
     public void draw() {
+        background(255);
         game.draw();
-    }
-    public void settings(){
-        size(1000,600, OPENGL);
     }
 
     public static void main(String[] args) {

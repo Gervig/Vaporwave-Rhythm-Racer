@@ -250,6 +250,6 @@ CollisionObject o-- PowerUp
 GameUI o-- Button
 Graphics o-- TwoDGraphics
 'Graphics o-- Vaporwave
-'Vaporwave o-- Moon
+Vaporwave o-- Moon
 
 @enduml

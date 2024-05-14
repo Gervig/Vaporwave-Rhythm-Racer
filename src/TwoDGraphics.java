@@ -1,7 +1,9 @@
 import processing.core.PApplet;
+import processing.core.PConstants;
+import processing.opengl.*;
 
-public class TwoDGraphics extends Graphics {
-    private PApplet pApplet;
+public class TwoDGraphics {
+    PApplet pApplet;
     private int w;
     private int h;
     private final int cols = 20;
@@ -22,14 +24,14 @@ public class TwoDGraphics extends Graphics {
     public void drawGrid() {
         createLandscape();
         // colors the stroke
-        stroke(50, 50,255);
+        pApplet.stroke(50, 50, 255);
         // decides the width of the lines
-        strokeWeight(5);
-        for(int i = 0; i <= cols; i++){
-            line(0,i*scl, 1080, i*scl);
+        pApplet.strokeWeight(5);
+        for (int i = 0; i <= cols; i++) {
+            pApplet.line(0, i * scl, 1080, i * scl);
         }
-        for(int j = 0; j <= rows; j++){
-            line(j*scl,0, j*scl, 1920);
+        for (int j = 0; j <= rows; j++) {
+            pApplet.line(j * scl, 0, j * scl, 1920);
         }
     }
 }
