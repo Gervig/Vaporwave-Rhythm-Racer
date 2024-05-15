@@ -96,7 +96,7 @@ public class Player extends GameObject {
     public double getXPosition() {
         mouseXPos = pApplet.mouseX;
         int leftBound = pApplet.width / 2 - 96;
-        int rightBound = pApplet.width / 2 + 96;
+        int rightBound = pApplet.width / 2 + 144;
         if (mouseXPos <= leftBound) {
             mouseXPos = leftBound;
         } else if (mouseXPos >= rightBound) {

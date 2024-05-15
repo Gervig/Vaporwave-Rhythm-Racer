@@ -56,7 +56,7 @@ Main extends PApplet {
             obstacleDelay = this.random(10, 60);
             obstacleCounter = 0;
         }
-        obstacleCounter += gameSpeed;
+        obstacleCounter += gameSpeed*100;
     }
 
     public static void main(String[] args) {

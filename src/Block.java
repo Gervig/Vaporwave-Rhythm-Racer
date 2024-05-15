@@ -10,7 +10,7 @@ public class Block extends GameObject {
     public Block(PApplet pApplet) {
         super(pApplet);
         this.yPosition = 0;
-        this.randomLane = (int)pApplet.random(1,3);
+        this.randomLane = (int) pApplet.random(1, 4);
         this.blockHeight = pApplet.random(40, 200);
     }
 
@@ -36,14 +36,14 @@ public class Block extends GameObject {
 
     public void displayObject(int lane) {
         lane = this.getRandomLane();
-        if (lane == 1){
-            pApplet.rect(pApplet.width-96, yPosition, blockWidth, blockHeight);
+        if (lane == 1) {
+            pApplet.rect(pApplet.width / 2 - 96, yPosition, blockWidth, blockHeight);
         }
-        if(lane == 2) {
-            pApplet.rect(pApplet.width, yPosition, blockWidth, blockHeight);
+        if (lane == 2) {
+            pApplet.rect(pApplet.width / 2, yPosition, blockWidth, blockHeight);
         }
-        if(lane == 3){
-            pApplet.rect(pApplet.width+96, yPosition, blockWidth, blockHeight);
+        if (lane == 3) {
+            pApplet.rect(pApplet.width / 2 + 96, yPosition, blockWidth, blockHeight);
         }
     }
 
@@ -54,6 +54,6 @@ public class Block extends GameObject {
 
     @Override
     public void updateObjectPosition(float gameSpeed) {
-        this.yPosition += gameSpeed;
+        this.yPosition += gameSpeed*100;
     }
 }
