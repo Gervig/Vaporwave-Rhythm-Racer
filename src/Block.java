@@ -16,17 +16,24 @@ public class Block extends GameObject {
 
     @Override
     public double getXPosition() {
-        return 0;
+        int xPosition = pApplet.width/2;
+        if (getRandomLane()==1){
+            xPosition -= 96;
+        }
+        if (getRandomLane()==3){
+            xPosition += 96;
+        }
+        return xPosition;
     }
 
     @Override
     public double getYPositionUpper() {
-        return 0;
+        return yPosition;
     }
 
     @Override
     public double getYPositionLower() {
-        return 0;
+        return yPosition + this.getBlockHeight();
     }
 
     @Override
@@ -54,6 +61,10 @@ public class Block extends GameObject {
 
     @Override
     public void updateObjectPosition(float gameSpeed) {
-        this.yPosition += gameSpeed*100;
+        this.yPosition += gameSpeed*45;
+    }
+
+    public float getBlockHeight() {
+        return blockHeight;
     }
 }

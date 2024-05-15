@@ -70,16 +70,32 @@ public class Player extends GameObject {
 //        drawWheels(mouseXPos,carYPos);
     }
 
+    int testCounter = 0;
+
+    //TODO make collision work
     @Override
     public boolean checkCollision(GameObject gameObject) {
         int objectPosition = (int) gameObject.getXPosition();
-        if (this.getPlayerPos()[0] <= objectPosition - 40 && objectPosition - 40 <= this.getPlayerPos()[1]) {
+        if (this.getPlayerPos()[0] <= objectPosition - 20 && objectPosition - 20 <= this.getPlayerPos()[1]) {
+//            Main.removeGameObject(gameObject);
+//            System.out.println("You got hit");
             return true;
+        } else if (testCounter == 60) {
+            System.out.println("You are ok");
+            testCounter = 0;
+        } else {
+            testCounter++;
         }
-        if (this.getPlayerPos()[0] <= objectPosition + 40 && objectPosition + 40 <= this.getPlayerPos()[1]) {
+        if (this.getPlayerPos()[0] <= objectPosition + 20 && objectPosition + 20 <= this.getPlayerPos()[1]) {
+//            Main.removeGameObject(gameObject);
+//            System.out.println("You got hit");
             return true;
+        } else if (testCounter == 60) {
+            System.out.println("You are ok");
+            testCounter = 0;
+        } else {
+            testCounter++;
         }
-
         return false;
     }
 

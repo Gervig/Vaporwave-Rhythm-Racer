@@ -1,13 +1,14 @@
 import processing.core.PApplet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class
 Main extends PApplet {
     //    Game game = new Game("Vaporwave Rhythm Racer", this);
 //    Graphics graphics = new Graphics(this);
     float gameSpeed = (float) 0.05;
-    ArrayList<GameObject> gameObjectsList = new ArrayList<>();
+    static ArrayList<GameObject> gameObjectsList = new ArrayList<>();
     TwoDGraphics twoDGraphics = new TwoDGraphics(this);
     GameObject player = new Player(this, 3);
 //    GameObject block = new Block(this);
@@ -16,9 +17,11 @@ Main extends PApplet {
 
     float obstacleCounter = 0;
 
+    int testCounter = 0;
+
     public void settings() {
         size(1920, 1080);
-        fullScreen();
+//        fullScreen();
     }
 
     @Override
@@ -34,8 +37,11 @@ Main extends PApplet {
         for (GameObject g : gameObjectsList) {
             g.updateObjectPosition(gameSpeed);
             g.displayObject(g.getRandomLane());
+            //TODO make collision work
+            if(g.getYPositionLower() >= player.getYPositionUpper() && g.getYPositionUpper() >= player.getYPositionLower()) {
+                player.checkCollision(g);
+            }
         }
-
         player.displayObject(0);
 //        game.gameDraw();
     }
@@ -56,7 +62,17 @@ Main extends PApplet {
             obstacleDelay = this.random(10, 60);
             obstacleCounter = 0;
         }
-        obstacleCounter += gameSpeed*100;
+        obstacleCounter += gameSpeed*5;
+    }
+    public static void removeGameObject(GameObject gameObject) {
+        Iterator<GameObject> iterator = gameObjectsList.iterator();
+        while (iterator.hasNext()) {
+            GameObject g = iterator.next();
+            if (g == gameObject) {
+                iterator.remove();
+                break; // Exit the loop once the object is removed
+            }
+        }
     }
 
     public static void main(String[] args) {
