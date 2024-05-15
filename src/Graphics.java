@@ -1,16 +1,24 @@
 import processing.core.PApplet;
 
-public class Graphics extends PApplet{
+public class Graphics{
     PApplet pApplet;
-//    private PApplet pApplet;
-//    TwoDGraphics twoDGraphics = new TwoDGraphics();
-//    private Vaporwave vaporwave;
-    public Graphics() {
-
+    private double speed = 0.05;
+    private TwoDGraphics twoDGraphics = new TwoDGraphics(pApplet);
+    public Graphics(PApplet pApplet) {
+    this.pApplet = pApplet;
         // Constructor code here
     }
 
     public void drawGraphics() {
-//        twoDGraphics.drawGrid();
+        twoDGraphics.drawGradient();
+        twoDGraphics.drawGrid(speed);
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }

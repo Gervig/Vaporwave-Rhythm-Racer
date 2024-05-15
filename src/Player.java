@@ -1,9 +1,8 @@
 import processing.core.PApplet;
 
-public class Player extends Shape {
+public class Player extends GameObject {
     private int health;
-
-    private int carYPos = (int)(pApplet.height*9);
+    private int carYPos = (int) (pApplet.height * 7);
     private int carWidth = 96;
     private int carHeight = 144;
     private int maxHealth;
@@ -12,7 +11,6 @@ public class Player extends Shape {
     int mouseXPos = pApplet.mouseX;
 
     // constructor
-
     public Player(PApplet pApplet, int health) {
         super(pApplet);
         this.health = health;
@@ -64,8 +62,38 @@ public class Player extends Shape {
     }
 
     @Override
-    public void displayShape() {
+    public void displayObject(int i) {
 //        pApplet.rectMode(0);
+        this.getXPosition();
+        // a is x, b is y, c is width, d is height and r is radius of the corners (gives the rectangle round corners)
+        pApplet.rect(mouseXPos - 48, carYPos, carWidth, carHeight, 28);
+//        drawWheels(mouseXPos,carYPos);
+    }
+
+    @Override
+    public boolean checkCollision(GameObject gameObject) {
+        int objectPosition = (int) gameObject.getXPosition();
+        if (this.getPlayerPos()[0] <= objectPosition - 40 && objectPosition - 40 <= this.getPlayerPos()[1]) {
+            return true;
+        }
+        if (this.getPlayerPos()[0] <= objectPosition + 40 && objectPosition + 40 <= this.getPlayerPos()[1]) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void updateObjectPosition(float gameSpeed) {
+    }
+
+    @Override
+    public int getRandomLane() {
+        return 0;
+    }
+
+    @Override
+    public double getXPosition() {
         mouseXPos = pApplet.mouseX;
         int leftBound = pApplet.width / 2 - 96;
         int rightBound = pApplet.width / 2 + 96;
@@ -74,10 +102,19 @@ public class Player extends Shape {
         } else if (mouseXPos >= rightBound) {
             mouseXPos = rightBound;
         }
-        // a is x, b is y, c is width, d is height and r is radius of the corners (gives the rectangle round corners)
-        pApplet.rect(mouseXPos - 48, carYPos, carWidth, carHeight, 28);
-//        drawWheels(mouseXPos,carYPos);
+        return mouseXPos;
     }
+
+    @Override
+    public double getYPositionUpper() {
+        return carYPos;
+    }
+
+    @Override
+    public double getYPositionLower() {
+        return carYPos + carHeight;
+    }
+
 
     // Define other methods as per your diagram
 }

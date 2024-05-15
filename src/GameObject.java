@@ -1,18 +1,11 @@
-public abstract class GameObject {
-    private double xPosition;
-    private double zPosition;
+import processing.core.PApplet;
+
+public abstract class GameObject implements IGameObject {
+    PApplet pApplet;
 
     // constructor
-    public GameObject(double xPosition, double zPosition) {
-        this.xPosition = xPosition;
-        this.zPosition = zPosition;
+    public GameObject(PApplet pApplet) {
+        this.pApplet = pApplet;
     }
 
-    public double getXPosition() {
-        return xPosition;
-    }
-
-    public double getZPosition() {
-        return zPosition;
-    }
 }

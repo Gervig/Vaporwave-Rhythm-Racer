@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 
-public class TwoDGraphics extends Shape{
+public class TwoDGraphics{
+    PApplet pApplet;
     float gridSpeed = 0;
     private int w;
     private int h;
@@ -12,14 +13,14 @@ public class TwoDGraphics extends Shape{
     private int[][] landscape;
 
     public TwoDGraphics(PApplet pApplet) {
-        super(pApplet);
+        this.pApplet = pApplet;
     }
 
     public void createLandscape() {
         landscape = new int[cols][rows];
     }
 
-    public void drawGrid(float speed) {
+    public void drawGrid(double speed) {
         // colors the stroke
         pApplet.stroke(50, 50, 255);
         // decides the width of the lines
@@ -64,7 +65,4 @@ public class TwoDGraphics extends Shape{
         }
     }
 
-    @Override
-    public void displayShape() {
-    }
 }

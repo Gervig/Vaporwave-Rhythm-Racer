@@ -50,6 +50,11 @@ class AudioPlayer{
 + void stopSong()
 }
 
+interface IGameObject{
+double getXPosition();
+void displayObject();
+}
+
 'creates different obstacles
 abstract class GameObject{
 - double xPosition
@@ -201,7 +206,7 @@ class TwoDGraphics{
 - int cols
 - int gridStroke
 - int gridFill
-- int scl = 15
+- int scl = 48
 - int[][] landscape
 'constructor
 + TwoDGraphics()
