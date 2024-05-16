@@ -42,6 +42,7 @@ public class Player extends GameObject {
 
     public int[] getPlayerPos() {
         int[] playerPos = new int[2];
+        this.getXPosition();
         playerPos[0] = mouseXPos - 48;
         playerPos[1] = mouseXPos + 48;
         return playerPos;
@@ -49,7 +50,6 @@ public class Player extends GameObject {
 
     private void drawWheels(int x, int y) {
         //TODO position these rectangles to be where the wheels are supposed to be drawn
-
         // left front wheel
         pApplet.rect(5, 25, x, y, 28);
         // right front wheel
