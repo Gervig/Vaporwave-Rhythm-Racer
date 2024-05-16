@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import ddf.minim.*;
+import ddf.minim.spi.*;
 
 import java.util.ArrayList;
 
@@ -12,6 +14,8 @@ Main extends PApplet {
 
     int scoreScreenCounter = 0;
     static ArrayList<GameObject> gameObjectsList = new ArrayList<>();
+    Minim minim;
+    AudioPlayer audioPlayer;
     TwoDGraphics twoDGraphics = new TwoDGraphics(this);
     Player player = new Player(this, 3);
 //    GameObject block = new Block(this);
@@ -32,6 +36,9 @@ Main extends PApplet {
 
     @Override
     public void setup() {
+//        minim = new Minim(this);
+//        audioPlayer = minim.loadFile("data/password-infinity-123276.mp3");
+//        audioPlayer.play();
     }
 
     @Override
@@ -40,9 +47,9 @@ Main extends PApplet {
         if (player.getHealth() < 0) {
             //TODO highscore stuff, death screen, retry, main menu !!!
             background(0);
-            text("You died! \nYour score: " + score, this.width/2 -100, this.height/2 -200);
+            text("You died! \nYour score: " + score, this.width / 2 - 100, this.height / 2 - 200);
             scoreScreenCounter++;
-            if(scoreScreenCounter>600){
+            if (scoreScreenCounter > 600) {
                 exit();
             }
         } else {
@@ -53,7 +60,7 @@ Main extends PApplet {
             } else {
                 speedCounter++;
             }
-            player.setInvincibilityTimer(player.getInvincibilityTimer()-1);
+            player.setInvincibilityTimer(player.getInvincibilityTimer() - 1);
             background(255);
             twoDGraphics.drawGradient();
             twoDGraphics.drawGrid(gameSpeed);
@@ -119,7 +126,7 @@ Main extends PApplet {
         fill(255);
         textSize(32);
         score += gameSpeed;
-        text(score , 10, 50);
+        text(score, 10, 50);
     }
 
     public static void main(String[] args) {
