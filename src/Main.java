@@ -21,7 +21,7 @@ Main extends PApplet {
 
     public void settings() {
         size(1920, 1080);
-//        fullScreen();
+        fullScreen();
     }
 
     @Override
@@ -34,14 +34,24 @@ Main extends PApplet {
         twoDGraphics.drawGradient();
         twoDGraphics.drawGrid(gameSpeed);
         generateObstacles();
-        for (GameObject g : gameObjectsList) {
-            g.updateObjectPosition(gameSpeed);
-            g.displayObject(g.getRandomLane());
+        for (int i = gameObjectsList.size()-1; i > -1; i--) {
+
+            gameObjectsList.get(i).updateObjectPosition(gameSpeed);
+            gameObjectsList.get(i).displayObject(gameObjectsList.get(i).getRandomLane());
             //TODO make collision work
-            if(g.getYPositionLower() >= player.getYPositionUpper() && g.getYPositionUpper() >= player.getYPositionLower()) {
-                player.checkCollision(g);
+            if (gameObjectsList.get(i).getYPositionLower() >= player.getYPositionUpper() && gameObjectsList.get(i).getYPositionUpper() <= player.getYPositionLower()) {
+                player.checkCollision(gameObjectsList.get(i));
             }
         }
+
+//        for (GameObject g : gameObjectsList) {
+//            g.updateObjectPosition(gameSpeed);
+//            g.displayObject(g.getRandomLane());
+//            //TODO make collision work
+//            if(g.getYPositionLower() >= player.getYPositionUpper() && g.getYPositionUpper() <= player.getYPositionLower()) {
+//                player.checkCollision(g);
+//            }
+//        }
         player.displayObject(0);
 //        game.gameDraw();
     }
@@ -65,14 +75,25 @@ Main extends PApplet {
         obstacleCounter += gameSpeed*5;
     }
     public static void removeGameObject(GameObject gameObject) {
-        Iterator<GameObject> iterator = gameObjectsList.iterator();
-        while (iterator.hasNext()) {
-            GameObject g = iterator.next();
-            if (g == gameObject) {
-                iterator.remove();
-                break; // Exit the loop once the object is removed
+        GameObject objectToRemove = null;
+        for(GameObject o: gameObjectsList) {
+            if (o == gameObject){
+                objectToRemove = o;
+                break;
             }
         }
+        if(objectToRemove!=null) {
+            gameObjectsList.remove(objectToRemove);
+        }
+
+//        Iterator<GameObject> iterator = gameObjectsList.iterator();
+//        while (iterator.hasNext()) {
+//            GameObject g = iterator.next();
+//            if (g == gameObject) {
+//                iterator.remove();
+//                break; // Exit the loop once the object is removed
+//            }
+//        }
     }
 
     public static void main(String[] args) {
