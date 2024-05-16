@@ -1,16 +1,16 @@
 import processing.core.PApplet;
 
-public class Block extends GameObject {
+public class Invincibility extends GameObject {
     private int yPosition;
     private int blockWidth = 40;
     private float blockHeight;
     private int randomLane;
 
-    public Block(PApplet pApplet) {
+    public Invincibility(PApplet pApplet) {
         super(pApplet);
         this.yPosition = 0;
         this.randomLane = (int) pApplet.random(1, 4);
-        this.blockHeight = pApplet.random(40, 200);
+        this.blockHeight = 40;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class Block extends GameObject {
         return yPosition + this.getBlockHeight();
     }
 
-    @Override
-    public int getRandomLane() {
-        return randomLane;
+    public float getBlockHeight() {
+        return blockHeight;
     }
 
+    @Override
     public void displayObject(int lane) {
-        pApplet.fill(255, 255, 255);
+        pApplet.fill(255, 255, 0);
         lane = this.getRandomLane();
         if (lane == 1) {
             pApplet.rect(pApplet.width / 2 - 96, yPosition, blockWidth, blockHeight);
@@ -52,6 +52,7 @@ public class Block extends GameObject {
         if (lane == 3) {
             pApplet.rect(pApplet.width / 2 + 96, yPosition, blockWidth, blockHeight);
         }
+
     }
 
     @Override
@@ -61,10 +62,11 @@ public class Block extends GameObject {
 
     @Override
     public void updateObjectPosition(float gameSpeed) {
-        this.yPosition += gameSpeed * 45;
+        this.yPosition += gameSpeed * 90;
     }
 
-    public float getBlockHeight() {
-        return blockHeight;
+    @Override
+    public int getRandomLane() {
+        return randomLane;
     }
 }

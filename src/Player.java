@@ -5,9 +5,9 @@ public class Player extends GameObject {
     private int carYPos = (int) (pApplet.height * 7);
     private int carWidth = 96;
     private int carHeight = 144;
-    private int maxHealth;
-    private int scorePoints;
+    private int maxHealth = 3;
     private boolean superPower;
+    private int invincibilityTimer = 0;
     int mouseXPos = pApplet.mouseX;
 
     // constructor
@@ -20,8 +20,8 @@ public class Player extends GameObject {
         this.health = health;
     }
 
-    public void resetScorePoints() {
-        this.scorePoints = 0;
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public void displayHealth() {
@@ -32,9 +32,6 @@ public class Player extends GameObject {
         return health;
     }
 
-    public int getScorePoints() {
-        return scorePoints;
-    }
 
     public void changeHealth(int amount) {
         this.health += amount;
@@ -70,9 +67,13 @@ public class Player extends GameObject {
 //        pApplet.rectMode(0);
         this.getXPosition();
         switch (this.health) {
+            case 0:
+                // fill with black
+                pApplet.fill(50, 0, 0);
+                break;
             case 1:
                 // fill with red
-                pApplet.fill(250, 50, 150);
+                pApplet.fill(250, 0, 150);
                 break;
             case 2:
                 // fill with yellow
@@ -86,6 +87,19 @@ public class Player extends GameObject {
         // a is x, b is y, c is width, d is height and r is radius of the corners (gives the rectangle round corners)
         pApplet.rect(mouseXPos - 48, carYPos, carWidth, carHeight, 28);
 //        drawWheels(mouseXPos,carYPos);
+        if (invincibilityTimer > 0) {
+            pApplet.fill(255);
+            pApplet.textSize(32);
+            pApplet.text(invincibilityTimer, (int)getXPosition()-carWidth/4, (int) getYPositionUpper() + carHeight / 2);
+        }
+    }
+
+    public int getInvincibilityTimer() {
+        return invincibilityTimer;
+    }
+
+    public void setInvincibilityTimer(int invincibilityTimer) {
+        this.invincibilityTimer = invincibilityTimer;
     }
 
     int testCounter = 0;
@@ -94,14 +108,34 @@ public class Player extends GameObject {
     public boolean checkCollision(GameObject gameObject) {
         int objectPosition = (int) gameObject.getXPosition();
         if (this.getPlayerPos()[0] <= objectPosition && objectPosition <= this.getPlayerPos()[1]) {
+            if (gameObject instanceof HealthBlock) {
+                if (this.getHealth() < 3) {
+                    this.changeHealth(1);
+                }
+            } else if (gameObject instanceof Invincibility) {
+                invincibilityTimer = 300;
+            } else if (invincibilityTimer > 0) {
+                Main.score += 10;
+            } else {
+                this.changeHealth(-1);
+            }
             Main.removeGameObject(gameObject);
-            this.changeHealth(-1);
 //            System.out.println("You got hit");
             return true;
         }
         if (this.getPlayerPos()[0] <= objectPosition + 40 && objectPosition + 48 <= this.getPlayerPos()[1]) {
+            if (gameObject instanceof HealthBlock) {
+                if (this.getHealth() < 3) {
+                    this.changeHealth(1);
+                }
+            } else if (gameObject instanceof Invincibility) {
+                invincibilityTimer = 300;
+            } else if (invincibilityTimer > 0) {
+                Main.score += 10;
+            } else {
+                this.changeHealth(-1);
+            }
             Main.removeGameObject(gameObject);
-            this.changeHealth(-1);
 //            System.out.println("You got hit");
             return true;
         }
