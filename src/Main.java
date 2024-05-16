@@ -1,6 +1,4 @@
 import processing.core.PApplet;
-import ddf.minim.*;
-import ddf.minim.spi.*;
 
 import java.util.ArrayList;
 
@@ -14,8 +12,6 @@ Main extends PApplet {
 
     int scoreScreenCounter = 0;
     static ArrayList<GameObject> gameObjectsList = new ArrayList<>();
-    Minim minim;
-    AudioPlayer audioPlayer;
     TwoDGraphics twoDGraphics = new TwoDGraphics(this);
     Player player = new Player(this, 3);
 //    GameObject block = new Block(this);
@@ -36,9 +32,7 @@ Main extends PApplet {
 
     @Override
     public void setup() {
-//        minim = new Minim(this);
-//        audioPlayer = minim.loadFile("data/password-infinity-123276.mp3");
-//        audioPlayer.play();
+
     }
 
     @Override
