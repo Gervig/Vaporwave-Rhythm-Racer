@@ -24,6 +24,10 @@ public class Player extends GameObject {
         this.scorePoints = 0;
     }
 
+    public void displayHealth() {
+
+    }
+
     public int getHealth() {
         return health;
     }
@@ -32,8 +36,8 @@ public class Player extends GameObject {
         return scorePoints;
     }
 
-    public void changeHealth() {
-
+    public void changeHealth(int amount) {
+        this.health += amount;
     }
 
     public void changeScorePoints() {
@@ -65,6 +69,20 @@ public class Player extends GameObject {
     public void displayObject(int i) {
 //        pApplet.rectMode(0);
         this.getXPosition();
+        switch (this.health) {
+            case 1:
+                // fill with red
+                pApplet.fill(250, 50, 150);
+                break;
+            case 2:
+                // fill with yellow
+                pApplet.fill(200, 200, 100);
+                break;
+            case 3:
+                // fill with red
+                pApplet.fill(50, 250, 150);
+                break;
+        }
         // a is x, b is y, c is width, d is height and r is radius of the corners (gives the rectangle round corners)
         pApplet.rect(mouseXPos - 48, carYPos, carWidth, carHeight, 28);
 //        drawWheels(mouseXPos,carYPos);
@@ -72,17 +90,18 @@ public class Player extends GameObject {
 
     int testCounter = 0;
 
-    //TODO make collision work
     @Override
     public boolean checkCollision(GameObject gameObject) {
         int objectPosition = (int) gameObject.getXPosition();
         if (this.getPlayerPos()[0] <= objectPosition && objectPosition <= this.getPlayerPos()[1]) {
             Main.removeGameObject(gameObject);
+            this.changeHealth(-1);
 //            System.out.println("You got hit");
             return true;
         }
         if (this.getPlayerPos()[0] <= objectPosition + 40 && objectPosition + 48 <= this.getPlayerPos()[1]) {
             Main.removeGameObject(gameObject);
+            this.changeHealth(-1);
 //            System.out.println("You got hit");
             return true;
         }

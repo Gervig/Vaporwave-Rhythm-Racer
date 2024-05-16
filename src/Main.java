@@ -10,7 +10,7 @@ Main extends PApplet {
     float gameSpeed = (float) 0.05;
     static ArrayList<GameObject> gameObjectsList = new ArrayList<>();
     TwoDGraphics twoDGraphics = new TwoDGraphics(this);
-    GameObject player = new Player(this, 3);
+    Player player = new Player(this, 3);
 //    GameObject block = new Block(this);
 
     float obstacleDelay = 0;
@@ -30,6 +30,12 @@ Main extends PApplet {
 
     @Override
     public void draw() {
+
+        if(player.getHealth() == 0){
+            //TODO quit program
+            this.exit();
+        }
+
         background(255);
         twoDGraphics.drawGradient();
         twoDGraphics.drawGrid(gameSpeed);
@@ -85,15 +91,6 @@ Main extends PApplet {
         if(objectToRemove!=null) {
             gameObjectsList.remove(objectToRemove);
         }
-
-//        Iterator<GameObject> iterator = gameObjectsList.iterator();
-//        while (iterator.hasNext()) {
-//            GameObject g = iterator.next();
-//            if (g == gameObject) {
-//                iterator.remove();
-//                break; // Exit the loop once the object is removed
-//            }
-//        }
     }
 
     public static void main(String[] args) {
