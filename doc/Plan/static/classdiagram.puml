@@ -245,7 +245,8 @@ class FileIO{
 Main *-- Game
 Game *-- FileIO
 Game *-- GameUI
-Game *-- GameObject
+Game *-- IGameObject
+IGameObject *-- GameObject
 Game *-- Graphics
 Game *-- AudioPlayer
 GameObject o-- Player

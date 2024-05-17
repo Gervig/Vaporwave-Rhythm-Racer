@@ -113,7 +113,7 @@ public class Player extends GameObject {
                     this.changeHealth(1);
                 }
             } else if (gameObject instanceof Invincibility) {
-                invincibilityTimer = 300;
+                invincibilityTimer = 600;
             } else if (invincibilityTimer > 0) {
                 Main.score += 10;
             } else {
